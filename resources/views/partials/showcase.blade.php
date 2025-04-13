@@ -5,7 +5,7 @@
             <h2 class="text-3xl font-bold text-gray-800">Tambahkan Kalender</h2>
             <p class="mt-4 text-gray-600">Catat acara sesuai jadwal kalian!</p>
         </div>
-        <div class="w-full md:w-2/3">
+        <div class="w-full sm:w-2/3 w-5/6">
             <img src="/images/showcase1.png" alt="Mockup 1" class="w-full rounded-lg shadow-lg">
         </div>
     </div>
@@ -16,7 +16,7 @@
             <h2 class="text-3xl font-bold text-gray-800">Bagikan ke temanmu</h2>
             <p class="mt-4 text-gray-600">Bagikan jadwalmu ke temanmu!.</p>
         </div>
-        <div class="w-full md:w-2/3">
+        <div class="w-full sm:w-2/3 w-5/6">
             <img src="/images/showcase1.png" alt="Mockup 2" class="w-full rounded-lg shadow-lg">
         </div>
     </div>
@@ -27,7 +27,7 @@
             <h2 class="text-3xl font-bold text-gray-800">Interaktif</h2>
             <p class="mt-4 text-gray-600">Desain interaktif untuk pengguna!.</p>
         </div>
-        <div class="w-full md:w-2/3">
+        <div class="w-full sm:w-2/3 w-5/6">
             <img src="/images/showcase1.png" alt="Mockup 3" class="w-full rounded-lg shadow-lg">
         </div>
     </div>
