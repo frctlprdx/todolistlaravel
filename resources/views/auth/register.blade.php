@@ -28,6 +28,7 @@
             </div>
         @endif
 
+
         <form action="{{ route('register.process') }}" method="POST" class="mt-6">
             @csrf <!-- Tambahkan ini untuk menghindari error 419 -->
             <!-- Nama -->
