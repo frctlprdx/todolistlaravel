@@ -20,6 +20,7 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 // Halaman yang hanya bisa diakses setelah login
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [TaskController::class, 'index'])->name('dashboard');
+    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
     Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store'); // Menyimpan task
     Route::put('/tasks/{id}', [TaskController::class, 'update']);
     Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');

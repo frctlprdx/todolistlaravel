@@ -1,15 +1,18 @@
 <nav class="fixed w-full bg-blue-500 shadow-md p-4 flex items-center justify-between ">
     <!-- Kiri: Logo dan MyTodo -->
     <div class="flex items-center space-x-2">
-        <img src="/logo.png" alt="Logo" class="w-8 h-8"> <!-- Ganti dengan path logo -->
+        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-8 h-8"> <!-- Ganti dengan path logo -->
         <span class="text-xl font-bold text-white">|  MyTodo</span>
     </div>
     
     <!-- Tengah: Search Bar -->
     <div class="w-1/3">
-        <input type="text" placeholder="Search task title..." 
-               class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300">
-    </div>
+        <form action="{{ route('tasks.index') }}" method="GET">
+            <input type="text" name="search" placeholder="Search task title..." 
+                   class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300"
+                   value="{{ request('search') }}">
+        </form>
+    </div>    
     
     <!-- Kanan: Calendar, Friends, Notifications, Profile -->
     <div class="flex items-center space-x-4">

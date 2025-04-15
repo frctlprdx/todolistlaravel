@@ -9,10 +9,23 @@ use Illuminate\Support\Facades\Auth;
 class TaskController extends Controller
 {
 
-    public function index() {
-        $tasks = Task::where('user_id', auth()->id())->get(); // Ambil hanya task milik user yang login
-        return view('dashboard', compact('tasks')); 
+    public function index(Request $request){
+        $query = Task::query();
+
+        if ($request->filled('search')) {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        $tasks = $query->where('user_id', auth()->user()->user_id)->latest()->get();
+
+        return view('dashboard', compact('tasks'));
     }
+
+    // public function index() {
+    //     $tasks = Task::where('user_id', auth()->id())->get(); // Ambil hanya task milik user yang login
+    //     return view('dashboard', compact('tasks')); 
+    // }
+
 
     public function store (Request $request){
 
