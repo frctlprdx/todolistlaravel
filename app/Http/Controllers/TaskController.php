@@ -92,4 +92,13 @@ class TaskController extends Controller
             'Expires' => '0',
         ]);
     }
+
+    public function toggleCompleted($id){
+        $task = Task::findOrFail($id);
+        $task->completed = !$task->completed; // Toggle nilai
+        $task->save();
+
+        return response()->json(['success' => true, 'completed' => $task->completed]);
+    }
+
 }

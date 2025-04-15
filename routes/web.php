@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [TaskController::class, 'index'])->name('dashboard');
     Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
     Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store'); // Menyimpan task
+    Route::patch('/tasks/{id}/toggle-completed', [TaskController::class, 'toggleCompleted'])->name('tasks.toggle-completed');
     Route::put('/tasks/{id}', [TaskController::class, 'update']);
     Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 });
