@@ -12,7 +12,7 @@
                 <li
                     class="p-3 bg-white shadow-md rounded-lg cursor-pointer hover:bg-gray-200 flex justify-between items-center">
                     <!-- Bagian Judul Tugas -->
-                    <span @click="selectedTask = {{ json_encode($task) }}" class="flex-grow">
+                    <span @click="selectedTask && selectedTask.id === {{ $task->id }} ? selectedTask = { id: null } : selectedTask = {{ json_encode($task) }}" class="flex-grow">
                         {{ $task->title }}
                     </span>
 
@@ -28,7 +28,13 @@
 
     <!-- Task Details (60%) -->
     <div class="w-3/5 p-6 bg-white h-full overflow-y-auto">
-        <template x-if="selectedTask">
+        <template x-if="!selectedTask.id">
+            <div class="flex flex-col items-center justify-center h-full text-center text-gray-500">
+                <h2 class="text-2xl font-semibold mb-2">Selamat Datang 👋</h2>
+                <p class="text-lg">Ada pekerjaan hari ini?</p>
+            </div>
+        </template>
+        <template x-if="selectedTask.id">
             <div>
                 <div class="flex justify-between items-center mb-2">
                     <h2 class="text-xl font-semibold" x-text="selectedTask.title"></h2>
