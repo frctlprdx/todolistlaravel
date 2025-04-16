@@ -69,8 +69,10 @@
                     x-text="'Created at: ' + new Date(selectedTask.created_at).toLocaleDateString('id-ID')"></p>
 
                 <div class="bg-white p-4 shadow-md rounded-lg">
-                    <p class="text-gray-800" x-text="selectedTask.description || 'Deskripsi tidak tersedia.'"></p>
+                    <p class="text-gray-800 whitespace-pre-wrap"
+                        x-text="selectedTask.description || 'Deskripsi tidak tersedia.'"></p>
                 </div>
+
             </div>
         </template>
 
@@ -92,14 +94,14 @@
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                     },
                 })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Toggle berhasil:', data);
-                    this.selectedTask.completed = data.completed;
-                })
-                .catch(error => {
-                    console.error('Terjadi kesalahan:', error);
-                });
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Toggle berhasil:', data);
+                        this.selectedTask.completed = data.completed;
+                    })
+                    .catch(error => {
+                        console.error('Terjadi kesalahan:', error);
+                    });
             }
         }
     }

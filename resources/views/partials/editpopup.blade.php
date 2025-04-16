@@ -25,7 +25,7 @@
 
             <!-- Form Edit Task -->
             @if(isset($task) && !empty($task))
-                <form method="POST" :action="`/tasks/${task.id}`">
+                <form method="POST" x-bind:action="'/tasks/' + task.id">
                     @csrf
                     @method('PUT')
 
